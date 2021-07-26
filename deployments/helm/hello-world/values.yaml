@@ -1,0 +1,42 @@
+image:
+  repository: bluesboy/hello-world
+  pullPolicy: IfNotPresent
+  tag: ""
+
+application:
+  port: 8080
+  monitor: true
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations: {}
+
+service:
+  type: ClusterIP
+  port: 80
+
+
+storage:
+  sql: true
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+persistence:
+  enabled: true
+  annotations: {}
+  accessModes:
+    - ReadWriteOnce
+  size: 30Mi
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

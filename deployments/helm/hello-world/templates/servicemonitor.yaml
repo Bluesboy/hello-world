@@ -1,0 +1,14 @@
+{{- if .Values.application.montor }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "hello-world.fullname" . }}
+spec:
+  endpoints:
+  - path: /metrics
+    port: http
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "hello-world.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
