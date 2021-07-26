@@ -105,7 +105,6 @@ func main() {
   router.Handle("/metrics", promhttp.Handler()).Methods("GET")
 
   http.ListenAndServe(":8080", router)
-  log.Printf("Listening on port 8080")
 }
 
 func Metrics(w http.ResponseWriter, r *http.Request) {
